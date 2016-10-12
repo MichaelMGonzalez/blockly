@@ -1,0 +1,31 @@
+<html>
+    <head></head>
+    <body>
+        <script src="blockly_compressed.js"></script>
+        <script src="blocks_compressed.js"></script>
+        <script src="blockly_behavior_nodes.js"></script>
+        <script src="msg/js/en.js"></script>
+        <div id="blocklyDiv" style="height: 480px; width: 600px;"></div>
+        <xml id="toolbox" style="display: none">
+            <category name="Defaults">
+                <block type="controls_if"></block>
+                <block type="controls_repeat_ext"></block>
+                <block type="logic_compare"></block>
+                <block type="math_number"></block>
+                <block type="math_arithmetic"></block>
+                <block type="text"></block>
+                <block type="text_print"></block>
+            </category>
+            <category name="Behavior Tree">
+                <block type="root_node"></block>
+                <block type="selector_node"></block>
+                <block type="sequence_node"></block>
+                <block type="action_node"></block>
+            </category>
+        </xml>
+        <script>
+            var workspace = Blockly.inject('blocklyDiv',
+                {toolbox: document.getElementById('toolbox')});
+            </script>
+    </body>
+</html>
