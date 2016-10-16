@@ -30,8 +30,7 @@ var BehaviorNode = function (name, color ) {
         init: function() {
         this.appendDummyInput()
             .appendField(name);
-        this.appendValueInput("NAME")
-            .setCheck("Boolean");
+        this.appendValueInput("NAME");
         this.setInputsInline(true);
         this.setPreviousStatement(true, null);
         this.setColour(color);
@@ -55,13 +54,10 @@ return {
         this.children_count = 0;
     },
     mutationToDom: function() {
-        if (!this.children_count) {
-            return null;
-        }
         var container = document.createElement('mutation');
-        if (this.children_count) {
-            container.setAttribute('children_count', this.children_count);
-        }
+
+        container.setAttribute('children_count', this.children_count);
+        
         return container;
     },
     domToMutation: function(xmlElement) {
@@ -136,9 +132,6 @@ return {
   }
     }
 };
-
-Blockly.Blocks['selector_node'] = new MultiBehaviorNode("(?) Selector Node", 120);
-Blockly.Blocks['sequence_node'] = new MultiBehaviorNode("(->) Sequence Node", 180);
 Blockly.Blocks['root_node'] = {
   init: function() {
     this.appendDummyInput()
@@ -151,10 +144,10 @@ Blockly.Blocks['root_node'] = {
   }
 };
 
+Blockly.Blocks['selector_node'] = new MultiBehaviorNode("(?) Selector Node", 120);
+Blockly.Blocks['sequence_node'] = new MultiBehaviorNode("(->) Sequence Node", 180);
 Blockly.Blocks['action_node'] = BehaviorNode( "Action Node", 330 );
 Blockly.Blocks['condition_node'] = BehaviorNode( "Condition Node", 220 );
-
-
 Blockly.Blocks['behavior_node_start'] = mutator( "Number of Child Behaviors", false, true ) ;
 Blockly.Blocks['behavior_node_extra'] = mutator( "Extra Behavior", true, true ) ;
 
